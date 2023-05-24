@@ -1,0 +1,28 @@
+.search_input{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-left: 35px;
+    background: #FFFFFF;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+    border: none;
+    outline: none;
+}
+.search_img{
+    position: absolute;
+    left: 15px;
+    top: 15px;
+}
+.form{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.search_form{
+    margin-bottom: 5px;
+    width: 350px;
+    height: 40px;
+    position: relative;
+}
