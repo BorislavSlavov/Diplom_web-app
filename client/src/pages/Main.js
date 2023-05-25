@@ -8,7 +8,7 @@ import { Context } from "..";
 import { fetchGenres, fetchDevs, fetchGames } from "../http/gameAPI";
 import Pages from "../components/Pages";
 
-const Shop = observer(() => {
+const Main = observer(() => {
     const {game} = useContext(Context)
 
     useEffect(() =>{
@@ -48,4 +48,4 @@ const Shop = observer(() => {
     );
 });
 
-export default Shop
+export default Main

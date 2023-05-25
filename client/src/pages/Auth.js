@@ -4,7 +4,7 @@ import { Button, Card, Container, Form, FormControl} from "react-bootstrap";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Context } from "..";
 import { login, registration } from "../http/userAPI";
-import { LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE } from "../utils/consts";
+import { LOGIN_ROUTE, REGISTRATION_ROUTE, MAIN_ROUTE } from "../utils/consts";
 
 
 const Auth = observer( () => {
@@ -26,7 +26,7 @@ const Auth = observer( () => {
             }   
             user.setUser(data)
             user.setIsAuth(true)
-            navigation(SHOP_ROUTE)
+            navigation(MAIN_ROUTE)
         } catch(e) {
             alert(e.response.data.message)
         }

@@ -2,8 +2,8 @@ import Admin from "./pages/Admin"
 import Auth from "./pages/Auth"
 import GamePage from "./pages/GamePage"
 import Profile from "./pages/Profile"
-import Shop from "./pages/Shop"
-import { ADMIN_ROUTE, GAME_ROUTE, LOGIN_ROUTE, PROFILE_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE } from "./utils/consts"
+import Main from "./pages/Main"
+import { ADMIN_ROUTE, GAME_ROUTE, LOGIN_ROUTE, PROFILE_ROUTE, REGISTRATION_ROUTE, MAIN_ROUTE } from "./utils/consts"
 
 export const authRoutes = [
     {
@@ -18,8 +18,8 @@ export const authRoutes = [
 
 export const publicRoutes = [
     {
-        path: SHOP_ROUTE,
-        Component: Shop
+        path: MAIN_ROUTE,
+        Component: Main
     },
     {
         path: LOGIN_ROUTE,

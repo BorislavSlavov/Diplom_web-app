@@ -2,7 +2,7 @@ const {Dev} = require('../models/models')
 const ApiError = require('../error/ApiError')
 
 
-class BrandController {
+class DevController {
     async create(req, res) {
         const {name} = req.body
         const dev = await Dev.create({name})
@@ -15,4 +15,4 @@ class BrandController {
     }
 }
 
-module.exports = new BrandController()
+module.exports = new DevController()

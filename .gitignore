@@ -5,3 +5,4 @@ server/node_modules
 server/static
 client/package.json
 client/node_modules
+server/.env
