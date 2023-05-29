@@ -12,7 +12,6 @@ import {CgProfile} from "react-icons/cg"
 const NavBar = observer(() => {
     const {user} = useContext(Context)
     const navigate = useNavigate()
-    
     const logOut = () => {
       user.setUser({})
       user.setIsAuth(false)
@@ -23,7 +22,7 @@ const NavBar = observer(() => {
       <Navbar bg="dark" variant="dark">
         <Container>
         <NavLink style={{color:'white'}} to = {MAIN_ROUTE}>BoardGames</NavLink>
-        {user.isAuth ?
+          {user.isAuth ?
             <Nav className="ms-auto" style={{color:'white'}}>
                 <CgProfile 
                 className="m-3"
@@ -31,12 +30,12 @@ const NavBar = observer(() => {
                 onClick={() => navigate(PROFILE_ROUTE)}
                 >
                 </CgProfile>
-                <Button 
-                  variant={"outline-light"} 
+                <Button
+                  variant={"outline-light"}
                   onClick={() => navigate(ADMIN_ROUTE)}
-                  >
-                    Панель админа
-                  </Button>
+                >
+                  Панель админа
+                </Button>
                 <Button 
                   variant={"outline-light"} 
                   onClick={() => logOut()} 
@@ -48,8 +47,7 @@ const NavBar = observer(() => {
             <Nav className="ms-auto" style={{color:'white'}}>
                 <Button variant={"outline-light"} onClick={() => navigate(LOGIN_ROUTE)}>Авторизация</Button>
             </Nav>
-            
-        }
+          }
         </Container>
       </Navbar>
     );

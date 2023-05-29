@@ -2,7 +2,7 @@ const {Genre} = require('../models/models')
 const ApiError = require('../error/ApiError') 
 
 
-class TypeController {
+class GenreController {
     async create(req, res) {
         const {name} = req.body
         const genre = await Genre.create({name})
@@ -15,4 +15,4 @@ class TypeController {
     }
 }
 
-module.exports = new TypeController()
+module.exports = new GenreController()

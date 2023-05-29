@@ -15,7 +15,7 @@ const Game = sequelize.define('game',{
     rating: {type: DataTypes.INTEGER, allowNull: false, defaultValue: 0},
     img: {type: DataTypes.STRING(4096), allowNull: false},
     playingTime: {type: DataTypes.STRING, allowNull: false},
-    game_description: {type: DataTypes.STRING(4096), allowNull: false},
+    game_description: {type: DataTypes.TEXT, allowNull: false},
     playersQuant: {type: DataTypes.STRING, allowNull: false},
     brief: {type: DataTypes.STRING, allowNull: false},
     release_date: {type: DataTypes.DATEONLY, allowNull: false},
@@ -33,6 +33,8 @@ const Dev = sequelize.define('dev',{
 
 const Rating = sequelize.define('rating',{
     id: {type:DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    name: {type:DataTypes.STRING, allowNull: false},
+    review: {type:DataTypes.TEXT, allowNull: false},
     rate: {type: DataTypes.INTEGER, allowNull: false}
 })
 
@@ -45,8 +47,6 @@ const GameInfo = sequelize.define('game_info',{
 const GenreDev = sequelize.define('genre_dev',{
     id: {type:DataTypes.INTEGER, primaryKey: true, autoIncrement: true}
 })
-User.hasMany(Rating)
-Rating.belongsTo(User)
 
 Genre.hasMany(Game)
 Game.belongsTo(Genre)

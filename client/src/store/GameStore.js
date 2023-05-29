@@ -4,6 +4,7 @@ export default class GameStore {
     constructor() {
         this._genres = []
         this._devs = []
+        this._ratings = []
         this._games = []
         this._selectedGenre = {}
         this._selectedDev = {}
@@ -19,6 +20,9 @@ export default class GameStore {
     }
     setDevs(devs) {
         this._devs = devs
+    }
+    setRatings(ratings) {
+        this._ratings = ratings
     }
     setGames(games) {
         this._games = games
@@ -48,6 +52,9 @@ export default class GameStore {
     }
     get devs() {
         return this._devs
+    }
+    get ratings() {
+        return this._ratings
     }
     get games() {
         const filteredGames = this._games.filter((game) =>

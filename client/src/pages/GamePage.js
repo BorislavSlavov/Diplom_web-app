@@ -1,15 +1,19 @@
-import { React, useEffect, useState } from "react";
-import { Container, Form, Image} from "react-bootstrap";
+import { React, useEffect, useState, useContext } from "react";
+import { Container, Form, Image } from "react-bootstrap";
 import './GamePage.css';
 import { useParams } from "react-router-dom";
 import { fetchOneGame } from "../http/gameAPI";
+import Reviews from "../components/Reviews";
+import CreateReview from "../components/CreateReview";
+import { Context } from "../index";
 
 const GamePage = () => {
-  const [game, setGame] = useState({ info: [] });
-  const { id } = useParams();
+  const {games} = useContext(Context)
+  const [game, setGame] = useState({ info: [] })
+  const { id } = useParams()
   useEffect(() => {
-    fetchOneGame(id).then((data) => setGame(data));
-  }, []);
+    fetchOneGame(id).then((data) => setGame(data))
+  }, [])
 
   return (
     <Container className="mt-3">
@@ -31,7 +35,7 @@ const GamePage = () => {
                     </div>
                     <div className="game-header-title-info">
                         <h1>{game.name}({game.release_date})</h1>
-                        <h7>{game.brief}</h7>
+                        <div>{game.brief}</div>
                         <div className = "credits mt-3">
                         <ul>
                             <li>
@@ -73,6 +77,13 @@ const GamePage = () => {
           </li>
         ))}
       </div>
+      <div className="panel panel-top mt-5">
+        <div className="panel-header panel-header-lg">
+            <h3 className="panel-title">Отзывы</h3>
+        </div>
+      </div>
+      <CreateReview/>
+      <Reviews gameId={id}/>
     </Container>  
   );
 };
