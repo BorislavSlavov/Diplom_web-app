@@ -9,8 +9,8 @@ const CreateReview = () => {
   const [reviewText, setReviewText] = useState("");
   const [rate, setRate] = useState("Rating");
 
-  const addReview = async (e) => {
-    e.preventDefault();
+  const addReview = async () => {
+    //e.preventDefault();
 
     if (rate === "Rating") {
       console.error("Выберите рейтинг");
@@ -25,13 +25,10 @@ const CreateReview = () => {
       return;
     }
 
-    // Заменить переносы строк на символы \n
-    const processedReviewText = reviewText.replace(/\n/g, "\\n");
-
     try {
       await createRating({
         name: name,
-        review: processedReviewText,
+        review: reviewText,
         rate: parseInt(rate),
         gameId: id,
       });
@@ -40,12 +37,9 @@ const CreateReview = () => {
     }
   };
 
-  // Обратно заменить символы \n на переносы строк
-  const displayedReviewText = reviewText.replace(/\\n/g, "\n");
-
   return (
     <div className="mb-2">
-      <form onSubmit={addReview}>
+      <form action="">
         <div className="form-row">
           <div className="form-group col-8">
             <label htmlFor="name">Name</label>
@@ -78,14 +72,17 @@ const CreateReview = () => {
         <div className="form-group">
           <label htmlFor="Review">Review</label>
           <textarea
-            type="submit"
-            value={displayedReviewText}
+            value={reviewText}
             onChange={(e) => setReviewText(e.target.value)}
             id="Review"
             className="form-control"
           ></textarea>
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button
+          type="submit"
+          onClick={addReview}
+          className="btn btn-primary"
+        >
           Submit
         </button>
       </form>

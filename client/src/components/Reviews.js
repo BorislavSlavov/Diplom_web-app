@@ -9,17 +9,17 @@ const Reviews = ({ gameId }) => {
     const fetchData = async () => {
       try {
         const data = await fetchRating(gameId);
-        setRatings(data);
+        setRatings(data)
       } catch (error) {
-        console.error('Error fetching ratings:', error);
+        console.error('Error fetching ratings:', error)
       }
-    };
+    }
 
-    fetchData();
-  }, [gameId]);
+    fetchData()
+  }, [gameId])
   return (
-    <div>
-      {ratings.reverse().map((rating) => (
+    <div style={{ display: "flex", flexDirection: "column-reverse" }}>
+      {ratings.map((rating) => (
         <div
           key={rating.id}
           className="card text-bg-light mb-3 mr-4"
@@ -31,11 +31,11 @@ const Reviews = ({ gameId }) => {
               <StarRating rating={rating.rate} />
             </span>
           </div>
-          <div className="card-body">
+          <div className="card-body" style={{ whiteSpace: "pre-line"}}>
             <p 
             className="card-text"
             >
-              {rating.review.replace(/\\n/g, "\n")}
+              {rating.review}
             </p>
           </div>
         </div>
@@ -45,4 +45,4 @@ const Reviews = ({ gameId }) => {
   );
 };
 
-export default Reviews;
+export default Reviews

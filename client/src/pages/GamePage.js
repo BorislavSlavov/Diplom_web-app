@@ -33,7 +33,7 @@ const GamePage = () => {
                     </div>
                     <div className="game-header-title-info">
                         <h1>{game.name}({game.release_date})</h1>
-                        <div>{game.brief}</div>
+                        <div style={{ whiteSpace: "pre-line"}}>{game.brief}</div>
                         <div className = "credits mt-3">
                         <ul>
                             <li>
@@ -61,7 +61,11 @@ const GamePage = () => {
             <h3 className="panel-title">Описание</h3>
         </div>
       </div>
-      <div className="panel-body">{game.game_description}</div>
+      <div 
+      style={{ whiteSpace: "pre-line"}}
+      className="panel-body"
+      >{game.game_description}
+      </div>
 
       <div className="panel panel-top mt-5">
         <div className="panel-header panel-header-lg">
