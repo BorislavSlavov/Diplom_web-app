@@ -94,6 +94,7 @@ const CreateGame = observer(({show, onHide}) => {
                     placeholder="Введите название игры "
                 />
                 <Form.Control
+                    as="textarea"
                     value={brief}
                     onChange={e => setBrief(e.target.value)}
                     className="mt-3"
@@ -114,6 +115,7 @@ const CreateGame = observer(({show, onHide}) => {
                     type="number"
                 />
                 <Form.Control
+                    as="textarea"
                     value={game_description}
                     onChange={e => setDescription(e.target.value)}
                     className="mt-3"

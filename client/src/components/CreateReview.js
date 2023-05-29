@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { createRating } from "../http/gameAPI";
 
 const CreateReview = () => {
@@ -10,11 +10,42 @@ const CreateReview = () => {
   const [rate, setRate] = useState("Rating");
 
   const addReview = async (e) => {
-    createRating({name : name, review: reviewText, rate: rate, gameId: id})
-  }
+    e.preventDefault();
+
+    if (rate === "Rating") {
+      console.error("Выберите рейтинг");
+      return;
+    }
+    if (name === "") {
+      console.error("Напишите своё имя");
+      return;
+    }
+    if (reviewText === "") {
+      console.error("Напишите свой отзыв");
+      return;
+    }
+
+    // Заменить переносы строк на символы \n
+    const processedReviewText = reviewText.replace(/\n/g, "\\n");
+
+    try {
+      await createRating({
+        name: name,
+        review: processedReviewText,
+        rate: parseInt(rate),
+        gameId: id,
+      });
+    } catch (error) {
+      console.error("Ошибка при создании рейтинга:", error);
+    }
+  };
+
+  // Обратно заменить символы \n на переносы строк
+  const displayedReviewText = reviewText.replace(/\\n/g, "\n");
+
   return (
     <div className="mb-2">
-      <form action="">
+      <form onSubmit={addReview}>
         <div className="form-row">
           <div className="form-group col-8">
             <label htmlFor="name">Name</label>
@@ -47,17 +78,14 @@ const CreateReview = () => {
         <div className="form-group">
           <label htmlFor="Review">Review</label>
           <textarea
-            value={reviewText}
+            type="submit"
+            value={displayedReviewText}
             onChange={(e) => setReviewText(e.target.value)}
             id="Review"
             className="form-control"
           ></textarea>
         </div>
-        <button
-          type="submit"
-          onClick={addReview}
-          className="btn btn-primary"
-        >
+        <button type="submit" className="btn btn-primary">
           Submit
         </button>
       </form>

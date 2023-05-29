@@ -32,7 +32,11 @@ const Reviews = ({ gameId }) => {
             </span>
           </div>
           <div className="card-body">
-            <p className="card-text">{rating.review}</p>
+            <p 
+            className="card-text"
+            >
+              {rating.review.replace(/\\n/g, "\n")}
+            </p>
           </div>
         </div>
       ))

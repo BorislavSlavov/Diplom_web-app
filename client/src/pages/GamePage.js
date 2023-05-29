@@ -1,14 +1,12 @@
-import { React, useEffect, useState, useContext } from "react";
+import { React, useEffect, useState } from "react";
 import { Container, Form, Image } from "react-bootstrap";
 import './GamePage.css';
 import { useParams } from "react-router-dom";
 import { fetchOneGame } from "../http/gameAPI";
 import Reviews from "../components/Reviews";
 import CreateReview from "../components/CreateReview";
-import { Context } from "../index";
 
 const GamePage = () => {
-  const {games} = useContext(Context)
   const [game, setGame] = useState({ info: [] })
   const { id } = useParams()
   useEffect(() => {
