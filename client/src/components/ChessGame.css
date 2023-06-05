@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+
+  align-items: center;
+  justify-content: center;
+}
+
+.chess_container {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-around;
+}

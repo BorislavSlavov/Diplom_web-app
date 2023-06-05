@@ -1,18 +1,17 @@
 import Admin from "./pages/Admin"
 import Auth from "./pages/Auth"
 import GamePage from "./pages/GamePage"
-import Profile from "./pages/Profile"
 import Main from "./pages/Main"
-import { ADMIN_ROUTE, GAME_ROUTE, LOGIN_ROUTE, PROFILE_ROUTE, REGISTRATION_ROUTE, MAIN_ROUTE } from "./utils/consts"
-
+import { ADMIN_ROUTE, GAME_ROUTE, LOGIN_ROUTE, CHESS_ROUTE, REGISTRATION_ROUTE, MAIN_ROUTE } from "./utils/consts"
+import ChessPage from "./pages/ChessPage"
 export const authRoutes = [
     {
         path: ADMIN_ROUTE,
         Component: Admin
     },
     {
-        path: PROFILE_ROUTE,
-        Component: Profile
+        path: CHESS_ROUTE,
+        Component: ChessPage
     },
 ]
 

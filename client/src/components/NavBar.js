@@ -3,11 +3,11 @@ import { Context } from "../index";
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import {NavLink} from "react-router-dom";
-import { ADMIN_ROUTE,PROFILE_ROUTE, LOGIN_ROUTE, MAIN_ROUTE } from "../utils/consts";
+import { ADMIN_ROUTE,CHESS_ROUTE, LOGIN_ROUTE, MAIN_ROUTE } from "../utils/consts";
 import {Button, Container} from "react-bootstrap";
 import { observer } from "mobx-react-lite";
 import {useNavigate} from "react-router-dom";
-import {CgProfile} from "react-icons/cg"
+import {FaChess, FaTools} from "react-icons/fa"
 
 const NavBar = observer(() => {
     const {user} = useContext(Context)
@@ -24,18 +24,18 @@ const NavBar = observer(() => {
         <NavLink style={{color:'white'}} to = {MAIN_ROUTE}>BoardGames</NavLink>
           {user.isAuth ?
             <Nav className="ms-auto" style={{color:'white'}}>
-                <CgProfile 
+                <FaChess 
                 className="m-3"
                 cursor= 'pointer'
-                onClick={() => navigate(PROFILE_ROUTE)}
+                onClick={() => navigate(CHESS_ROUTE)}
                 >
-                </CgProfile>
-                <Button
-                  variant={"outline-light"}
+                </FaChess>
+                <FaTools
+                  className="m-3"
+                  cursor= 'pointer'
                   onClick={() => navigate(ADMIN_ROUTE)}
                 >
-                  Панель админа
-                </Button>
+                </FaTools>
                 <Button 
                   variant={"outline-light"} 
                   onClick={() => logOut()} 

@@ -38,27 +38,26 @@ const CreateReview = () => {
   };
 
   return (
-    <div className="mb-2">
+    <div>
       <form action="">
         <div className="form-row">
-          <div className="form-group col-8">
-            <label htmlFor="name">Name</label>
+          <div className="form-group col-8 mb-3">
+            <label className="mb-3" htmlFor="name">Имя:</label>
             <input
               value={name}
               onChange={(e) => setName(e.target.value)}
               id="name"
-              placeholder="name"
+              placeholder="Имя..."
               type="text"
               className="form-control"
             />
           </div>
           <div className="form-group col-4">
-            <label htmlFor="rating">Rating</label>
             <select
               value={rate}
               onChange={(e) => setRate(e.target.value)}
               id="rating"
-              className="custom-select"
+              className="custom-select mb-3"
             >
               <option disabled>Rating</option>
               <option value="1">1</option>
@@ -69,13 +68,13 @@ const CreateReview = () => {
             </select>
           </div>
         </div>
-        <div className="form-group">
-          <label htmlFor="Review">Review</label>
+        <div className="form-group ">
+          <label className="mb-3" htmlFor="Review">Комментарий:</label>
           <textarea
             value={reviewText}
             onChange={(e) => setReviewText(e.target.value)}
             id="Review"
-            className="form-control"
+            className="form-control mb-3"
           ></textarea>
         </div>
         <button
@@ -83,7 +82,7 @@ const CreateReview = () => {
           onClick={addReview}
           className="btn btn-primary"
         >
-          Submit
+          Отправить
         </button>
       </form>
     </div>
