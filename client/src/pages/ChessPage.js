@@ -2,13 +2,11 @@ import React from "react";
 import ChessGame from "../components/ChessGame";
 
 const ChessPage = () => {
-    
-    return (
-        <div>
-            <h1>Сыграйте в шахматы вдвоём!</h1>
-       <ChessGame/>
-       </div>
-    );
+  return (
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "85vh" }}>
+      <ChessGame />
+    </div>
+  );
 };
 
-export default ChessPage
+export default ChessPage;

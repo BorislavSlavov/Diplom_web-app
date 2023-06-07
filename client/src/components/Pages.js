@@ -15,13 +15,14 @@ const Pages = observer(() => {
     return (
         <Pagination className="mt-5">
            {pages.map(page => 
-                <Pagination.Item
+                <Pagination.Item 
                     key={page}
                     active={game.page === page}
                     onClick={() => game.setPage(page)}
+                    
                 >
                     {page}
-                </Pagination.Item>
+                </Pagination.Item >
             )}
         </Pagination>
     );

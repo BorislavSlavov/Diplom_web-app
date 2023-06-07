@@ -18,7 +18,7 @@
 .form{
     display: flex;
     justify-content: space-between;
-    margin-top: 50px;
+
 }
 .search_form{
     margin-bottom: 5px;
@@ -26,3 +26,7 @@
     height: 40px;
     position: relative;
 }
+.game-list-container {
+    margin-bottom: 250px;
+}
+  

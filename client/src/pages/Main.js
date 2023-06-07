@@ -1,5 +1,5 @@
-import {React, useContext, useEffect } from "react";
-import {Button, Col, Container, Row} from "react-bootstrap";
+import { React, useContext, useEffect } from "react";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import GenreBar from "../components/GenreBar"
 import DevBar from "../components/DevBar"
 import GameList from "../components/GameList";
@@ -9,9 +9,9 @@ import { fetchGenres, fetchDevs, fetchGames } from "../http/gameAPI";
 import Pages from "../components/Pages";
 
 const Main = observer(() => {
-    const {game} = useContext(Context)
+    const { game } = useContext(Context)
 
-    useEffect(() =>{
+    useEffect(() => {
         fetchGenres().then(data => game.setGenres(data))
         fetchDevs().then(data => game.setDevs(data))
     }, [])
@@ -24,27 +24,37 @@ const Main = observer(() => {
     }, [game.page, game.selectedGenre, game.selectedDev])
 
     return (
-        <Container>
-            <Row className="mt-2">
-                <Col md={3}>
-                    <h4>Настольные игры</h4>
-                    <GenreBar/>
-                </Col>
-                <Col md={9}>
-                   
-                    <DevBar/> 
-                    <Button 
-                        onClick={() => window.location.reload()}
-                        className="mt-2"
-                        variant={"outline-danger"}
-                        >
-                        Очистить фильтры
-                    </Button>    
-                    <GameList/>
-                    <Pages/>
-                </Col>
-            </Row>
-        </Container>
+            <Container>
+                <Row className="mt-2">
+                    <Col md={3}>
+                        <h4>Настольные игры</h4>
+                        <GenreBar />
+                    </Col>
+                    <Col md={9}>
+                        <Row>
+                            <Col>
+                                <div style={{ display: "flex" }}>
+                                    <DevBar />
+                                </div>
+                            </Col>
+                            <Col>
+                                <div
+                                    style={{ display: "flex", justifyContent: "flex-end" }}
+                                >
+                                    <Button
+                                        onClick={() => window.location.reload()}
+                                        variant="dark"
+                                    >
+                                        Очистить фильтры
+                                    </Button>
+                                </div>
+                            </Col>
+                        </Row>
+                        <GameList />
+                        <Pages />
+                    </Col>
+                </Row>
+            </Container>
     );
 });
 

@@ -7,7 +7,7 @@ const DevBar = observer(() => {
     const {game} = useContext(Context)
     return (
     <Dropdown>
-        <Dropdown.Toggle>{game.selectedDev.name || "Разработчик"}</Dropdown.Toggle>
+        <Dropdown.Toggle variant="dark">{game.selectedDev.name || "Разработчик"}</Dropdown.Toggle>
         <Dropdown.Menu>
             {game.devs.map(dev =>
                 <Dropdown.Item onClick={() => game.setSelectedDev(dev)} key={dev.id}>{dev.name}</Dropdown.Item>    

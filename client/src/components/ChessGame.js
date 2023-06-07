@@ -58,7 +58,7 @@ function ChessGame() {
       <Button
         onClick={() => window.location.reload()}
         className="mt-2"
-        variant={"outline-danger"}
+        variant={"dark"}
       >
         Перезапустить игру
       </Button>

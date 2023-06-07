@@ -57,7 +57,7 @@ const CreateGame = observer(({show, onHide}) => {
         setFile(e.target.files[0])
     }
     
-    return (
+    return (    
     <Modal
         show={show}
         onHide={onHide}
