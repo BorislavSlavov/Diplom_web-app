@@ -80,7 +80,7 @@ const CreateReview = () => {
         <button
           type="submit"
           onClick={addReview}
-          className="btn btn-primary"
+          className="btn btn-dark mb-3"
         >
           Отправить
         </button>

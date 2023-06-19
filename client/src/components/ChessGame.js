@@ -5,22 +5,20 @@ import { Chess } from 'chess.js'
 import { Button } from 'react-bootstrap';
 
 function ChessGame() {
-  const [game, setGame] = useState(new Chess());
-  const [currentPlayer, setCurrentPlayer] = useState('w');
+  const [game, setGame] = useState(new Chess())
+  const [currentPlayer, setCurrentPlayer] = useState('w')
+
+  const currentPlayerLabel = currentPlayer === 'w' ? 'Белые' : 'Чёрные'
+  const playerWin = currentPlayerLabel === 'Белые' ? 'Чёрные' : 'Белые'
 
   function safeGameMutate(modify) {
     setGame((g) => {
-      const update = { ...g };
-      modify(update);
+      const update = { ...g }
+      modify(update)
       if (isGameOver()) {
-        // Игра окончена, предложение повторить
-        if (window.confirm('Игра окончена! Хотите сыграть еще раз?')) {
-          return new Chess(); // Начать новую игру
-        } else {
-          return update; // Продолжить текущую игру
-        }
+          return update
       }
-      return update;
+      return update
     });
   }
 
@@ -47,10 +45,8 @@ function ChessGame() {
 
   return (
     <div className="app">
-      <div>w - Белые</div>
-      <div>b - Чёрные</div>
-      <div>Текущий игрок: {currentPlayer}</div>
-      {isGameOver() && <div>Игра окончена!</div>}
+      <div>Текущий игрок: {currentPlayerLabel}</div>
+      {isGameOver() && window.alert(`Игра окончена! Победили ${playerWin}`)}
       <Chessboard
         position={game.fen()}
         onPieceDrop={onDrop}

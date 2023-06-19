@@ -51,6 +51,7 @@ const CreateGame = observer(({show, onHide}) => {
 
         createGame(formData).then(data => onHide())
         console.log(info)
+        window.location.reload()
     }
 
     const selectFile = e => {

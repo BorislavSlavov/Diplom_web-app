@@ -6,9 +6,10 @@ import { Context } from "../index";
 const GenreBar = observer(() => {
     const {game} = useContext(Context)
     return (
-        <ListGroup>
+        <ListGroup >
             {game.genres.map(genre =>
                 <ListGroup.Item 
+                    className="list-group-item list-group-item-action list-group-item-light"
                     style = {{cursor: 'pointer'}}
                     active = {genre.id === game.selectedGenre.id}
                     onClick = {() => game.setSelectedGenre(genre)}

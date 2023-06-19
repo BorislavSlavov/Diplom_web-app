@@ -27,6 +27,7 @@ const Auth = observer( () => {
             user.setUser(data)
             user.setIsAuth(true)
             navigation(MAIN_ROUTE)
+            window.location.reload()
         } catch(e) {
             alert(e.response.data.message)
         }

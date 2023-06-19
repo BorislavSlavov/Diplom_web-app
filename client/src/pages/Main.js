@@ -31,7 +31,7 @@ const Main = observer(() => {
                         <GenreBar />
                     </Col>
                     <Col md={9}>
-                        <Row>
+                        <Row className="mb-3">
                             <Col>
                                 <div style={{ display: "flex" }}>
                                     <DevBar />

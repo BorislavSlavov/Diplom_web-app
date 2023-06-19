@@ -16,6 +16,7 @@ const NavBar = observer(() => {
       user.setUser({})
       user.setIsAuth(false)
       localStorage.removeItem('token') // new
+      window.location.reload() 
     }
     
     return (

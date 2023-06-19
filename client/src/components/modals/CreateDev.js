@@ -10,6 +10,7 @@ const CreateDev = ({show, onHide}) => {
             setValue('')
             onHide()
         })
+        window.location.reload()
     }
     return (
     <Modal

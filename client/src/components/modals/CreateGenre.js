@@ -10,6 +10,7 @@ const CreateGenre = ({show, onHide}) => {
             setValue('')
             onHide()
         })
+        window.location.reload()
     }
 
     return (
