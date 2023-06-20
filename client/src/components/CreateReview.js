@@ -9,20 +9,23 @@ const CreateReview = () => {
   const [reviewText, setReviewText] = useState("");
   const [rate, setRate] = useState("Rating");
 
-  const addReview = async () => {
-    //e.preventDefault();
+  const addReview = async (e) => {
+    e.preventDefault();
 
     if (rate === "Rating") {
-      console.error("Выберите рейтинг");
-      return;
+      console.error("Выберите рейтинг")
+      window.alert("Выберите рейтинг")
+      return
     }
     if (name === "") {
-      console.error("Напишите своё имя");
-      return;
+      console.error("Напишите своё имя")
+      window.alert("Напишите своё имя")
+      return
     }
     if (reviewText === "") {
-      console.error("Напишите свой отзыв");
-      return;
+      console.error("Напишите свой отзыв")
+      window.alert("Напишите свой отзыв")
+      return
     }
 
     try {
@@ -31,9 +34,10 @@ const CreateReview = () => {
         review: reviewText,
         rate: parseInt(rate),
         gameId: id,
-      });
+      })
+      window.location.reload()
     } catch (error) {
-      console.error("Ошибка при создании рейтинга:", error);
+      console.error("Ошибка при создании рейтинга:", error)
     }
   };
 
@@ -69,7 +73,7 @@ const CreateReview = () => {
           </div>
         </div>
         <div className="form-group ">
-          <label className="mb-3" htmlFor="Review">Комментарий:</label>
+          <label className="mb-3" htmlFor="Review">Отзыв:</label>
           <textarea
             value={reviewText}
             onChange={(e) => setReviewText(e.target.value)}
