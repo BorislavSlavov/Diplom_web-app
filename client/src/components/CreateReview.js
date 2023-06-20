@@ -53,6 +53,7 @@ const CreateReview = () => {
               id="name"
               placeholder="Имя..."
               type="text"
+              maxLength="50"
               className="form-control"
             />
           </div>
@@ -76,6 +77,7 @@ const CreateReview = () => {
           <label className="mb-3" htmlFor="Review">Отзыв:</label>
           <textarea
             value={reviewText}
+            maxLength="2000"
             onChange={(e) => setReviewText(e.target.value)}
             id="Review"
             className="form-control mb-3"

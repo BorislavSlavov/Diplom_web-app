@@ -27,6 +27,7 @@ const CreateDev = ({show, onHide}) => {
         <Modal.Body>
             <Form>
                 <Form.Control
+                    maxLength="50"
                     value={value}
                     onChange={e => setValue(e.target.value)}
                     placeholder={"Введите название разработчика"}

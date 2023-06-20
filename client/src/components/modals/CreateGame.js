@@ -89,12 +89,14 @@ const CreateGame = observer(({show, onHide}) => {
                     </Dropdown.Menu>
                 </Dropdown>
                 <Form.Control
+                    maxLength="50"
                     value={name}
                     onChange={e => setName(e.target.value)}
                     className="mt-3"
                     placeholder="Введите название игры "
                 />
                 <Form.Control
+                    maxLength="200"
                     as="textarea"
                     value={brief}
                     onChange={e => setBrief(e.target.value)}
@@ -102,6 +104,7 @@ const CreateGame = observer(({show, onHide}) => {
                     placeholder="Введите краткую информацию игры "
                 />
                 <Form.Control
+                    maxLength="10" 
                     value={price}
                     onChange={e => setPrice(Number(e.target.value))}
                     className="mt-3"
@@ -109,6 +112,7 @@ const CreateGame = observer(({show, onHide}) => {
                     type="number"
                 />
                 <Form.Control
+                    maxLength="2"
                     value={rating}
                     onChange={e => setRating(Number(e.target.value))}
                     className="mt-3"
@@ -123,12 +127,14 @@ const CreateGame = observer(({show, onHide}) => {
                     placeholder="Введите описание игры "
                 />
                 <Form.Control
+                    maxLength="10"
                     value={playersQuant}
                     onChange={e => setPlayersQuant(e.target.value)}
                     className="mt-3"
                     placeholder="Введите кол-во игроков "
                 />
                 <Form.Control
+                    maxLength="10"
                     value={playingTime}
                     onChange={e => setPlayingTime(e.target.value)}
                     className="mt-3"
@@ -157,6 +163,7 @@ const CreateGame = observer(({show, onHide}) => {
                         <Row className="mt-4" key={i.number}>
                             <Col md={4}>
                                 <Form.Control
+                                    maxLength="50"
                                     value={i.title}
                                     onChange={(e) => changeInfo('title', e.target.value, i.number)}
                                     placeholder="Введите название комплектации"
@@ -164,6 +171,7 @@ const CreateGame = observer(({show, onHide}) => {
                             </Col>
                             <Col md={4}>
                                 <Form.Control
+                                    maxLength="50"
                                     value={i.description}
                                     onChange={(e) => changeInfo('description', e.target.value, i.number)}
                                     placeholder="Введите количество комплектации"
